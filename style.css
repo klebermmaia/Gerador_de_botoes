@@ -15,11 +15,51 @@ h1{
   margin-top: 30px;
 }
 label{
+  display: inline-block;
+  position: relative;
+}
+span{
+  display: flex;
+  position: absolute;
+  width: 12px;
+  height: 10px;
+  top: 5px;
+  right: -20px;
+}
+label span::before,
+label span::after{
+  content: '';
   display: block;
+  width: 8px;
+  height: 1px;
+  background-color: #272626;
+  position: absolute;
+  transition: all .3s;
+}
+label span::before{
+  top: 5px;
+  right: 4px;
+  transform: rotate(45deg);
+}
+label span::after{
+  top: 5px;
+  right: -2px;
+  transform: rotate(-45deg);
+}
+label.expanded span::before{
+  transform: rotate(-45deg);
+}
+label.expanded span::after{
+  transform: rotate(45deg);
 }
 input,
 select{
+  display: none;
   margin-top: 10px;
+}
+label.expanded + input,
+label.expanded + select{
+  display: block;
 }
 input[type="range"]{
   max-width: 100%;
@@ -65,4 +105,7 @@ input[type="range"]{
 .css span{
   display: block;
   margin-bottom: .5rem;
+  position: relative;
+  top: 0;
+  left: 0;
 }

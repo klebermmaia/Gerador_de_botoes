@@ -1,6 +1,7 @@
 const controles = document.querySelector('#controles');
 const cssText = document.querySelector('.css');
 const btn = document.querySelector('.btn');
+const expanded = document.querySelectorAll('[data-expanded]');
 
 const handleStyle = {
   element: btn,
@@ -67,6 +68,16 @@ const handleStyle = {
   },
   borderStyle(value){
     this.element.style.borderStyle = value;
+    const borderOptions = document.querySelectorAll('[data-border]');
+    if(value != 'none'){
+      borderOptions.forEach(item => {
+        item.classList.remove('none');
+      });
+    } else{
+      borderOptions.forEach(item => {
+        item.classList.add('none');
+      });
+    }
   },
   borderColor(value){
     this.element.style.borderColor = value;
@@ -82,15 +93,30 @@ const handleStyle = {
   },
 }
 
-function handleChange(evente){
-  const name = evente.target.name;
-  const value = evente.target.value;
+function handleChange(event){
+  const name = event.target.name;
+  const value = event.target.value;
   handleStyle[name](value)
   showCss();
 }
+function checkExpanded(parent){
+  if(!parent.classList.contains('expanded')){
+    const p1 = parent.nextElementSibling.nextElementSibling;
+    const p2 = p1.nextElementSibling
+    p1.style.display = 'none'
+    p2.style.display = 'none'
 
+  }
+}
+function toggleExpanded(event){
+  event.stopPropagation();
+  const parentElement = event.target.parentNode
+  parentElement.classList.toggle('expanded');
+  checkExpanded(parentElement);
+}
 function showCss(){
   cssText.innerHTML = '<span>' + btn.style.cssText.split('; ').join(';</span><span>');
 }
 
 controles.addEventListener('change', handleChange);
+expanded.forEach(element => element.addEventListener('click', toggleExpanded))
