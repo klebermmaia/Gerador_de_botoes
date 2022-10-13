@@ -1,0 +1,105 @@
+[data-settings]{
+  width: 100%;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background-color: #e9e9e9;
+  padding: 10px 15px;
+  position: relative;
+}
+[data-settings] > h3{
+  font-size: 1.125rem;
+  font-family: 'Poppins';
+  font-weight: 400;
+  border-bottom: 1px solid #c0c0c0;
+  display: inline-block;
+}
+.settings-options{
+  overflow: hidden;
+  height: 0;
+  transition: all .4s;
+}
+.settings-options.active{
+  height: 15em;
+}
+.arrow-expanded{
+  display: inline-flex;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 15px;
+  right: 15px;
+}
+.arrow-expanded::before,
+.arrow-expanded::after{
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 3px;
+  background-color: #2e2e2e;
+  position: absolute;
+  border-radius: 2px;
+  transition: transform .3s ease-in-out;
+}
+.arrow-expanded::before{
+  transform: rotate(45deg);
+  top: 7px;
+  left: -2px;
+}
+.arrow-expanded.active::before{
+  transform: rotate(-45deg);
+}
+.arrow-expanded::after{
+  transform: rotate(-45deg);
+  top: 7px;
+  right: -2px;
+}
+.arrow-expanded.active::after{
+  transform: rotate(45deg);
+}
+label{
+  color: #000;
+  display: inline-block;
+  position: relative;
+}
+.teste{
+  display: block;
+}
+/* label span::before,
+label span::after{
+  content: '';
+  display: block;
+  width: 8px;
+  height: 1px;
+  background-color: #353535;
+  position: absolute;
+  transition: all .3s;
+}
+label span::before{
+  top: 5px;
+  right: 4px;
+  transform: rotate(45deg);
+}
+label span::after{
+  top: 5px;
+  right: -2px;
+  transform: rotate(-45deg);
+}
+label.expanded span::before{
+  transform: rotate(-45deg);
+}
+label.expanded span::after{
+  transform: rotate(45deg);
+} */
+input,
+select{
+  /* display: none; */
+  margin-top: 10px;
+}
+/* label.expanded + input,
+label.expanded + select{
+  display: block;
+} */
+input[type="range"]{
+  max-width: 100%;
+}

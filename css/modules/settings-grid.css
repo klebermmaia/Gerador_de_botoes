@@ -1,0 +1,19 @@
+#controles{
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 23.5vw;
+  font-family: 'Rubik', monospace;
+  font-size: .875rem;
+  background-color: #1a1a1a;
+  padding: 1rem;
+  padding-top: 3rem;
+  box-shadow: 3px 3px 2px 0 #0000002c;
+  overflow-y: scroll;
+}
+#controles > h2{
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 1.75rem;
+}

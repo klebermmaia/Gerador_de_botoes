@@ -1,54 +1,54 @@
 const controles = document.querySelector('#controles');
 const cssText = document.querySelector('.css');
 const btn = document.querySelector('.btn');
-const expanded = document.querySelectorAll('[data-expanded]');
+const expanded = document.querySelectorAll('[data-expanded="btn"]');
 
 const handleStyle = {
   element: btn,
   texto(value){
     this.element.innerText = value;
   },
-  tipoPaletaText(value){
-    const hexadecimal = document.getElementById('hexadecimalText');
-    const paleta = document.getElementById('paletaText');
-    if(value == hexadecimal.id){
-      if(hexadecimal.style.display = 'none'){
-        hexadecimal.style.display = 'block';
-        paleta.style.display = 'none';
-      } else{
-        hexadecimal.style.display = 'none';
-      }
-    } else{
-      if(paleta.style.display = 'none'){
-        paleta.style.display = 'block';
-        hexadecimal.style.display = 'none';
-      } else{
-        paleta.style.display = 'none';
-      }
-    }
-  },
+  // tipoPaletaText(value){
+  //   const hexadecimal = document.getElementById('hexadecimalText');
+  //   const paleta = document.getElementById('paletaText');
+  //   if(value == hexadecimal.id){
+  //     if(hexadecimal.style.display = 'none'){
+  //       hexadecimal.style.display = 'block';
+  //       paleta.style.display = 'none';
+  //     } else{
+  //       hexadecimal.style.display = 'none';
+  //     }
+  //   } else{
+  //     if(paleta.style.display = 'none'){
+  //       paleta.style.display = 'block';
+  //       hexadecimal.style.display = 'none';
+  //     } else{
+  //       paleta.style.display = 'none';
+  //     }
+  //   }
+  // },
   color(value){
     this.element.style.color = value;
   },
-  tipoPaletaBG(value){
-    const hexadecimal = document.getElementById('hexadecimalBG');
-    const paleta = document.getElementById('paletaBG');
-    if(value == hexadecimal.id){
-      if(hexadecimal.style.display = 'none'){
-        hexadecimal.style.display = 'block';
-        paleta.style.display = 'none';
-      } else{
-        hexadecimal.style.display = 'none';
-      }
-    } else{
-      if(paleta.style.display = 'none'){
-        paleta.style.display = 'block';
-        hexadecimal.style.display = 'none';
-      } else{
-        paleta.style.display = 'none';
-      }
-    }
-  },
+  // tipoPaletaBG(value){
+  //   const hexadecimal = document.getElementById('hexadecimalBG');
+  //   const paleta = document.getElementById('paletaBG');
+  //   if(value == hexadecimal.id){
+  //     if(hexadecimal.style.display = 'none'){
+  //       hexadecimal.style.display = 'block';
+  //       paleta.style.display = 'none';
+  //     } else{
+  //       hexadecimal.style.display = 'none';
+  //     }
+  //   } else{
+  //     if(paleta.style.display = 'none'){
+  //       paleta.style.display = 'block';
+  //       hexadecimal.style.display = 'none';
+  //     } else{
+  //       paleta.style.display = 'none';
+  //     }
+  //   }
+  // },
   backgroundColor(value){
     this.element.style.backgroundColor = value;
   },
@@ -99,20 +99,13 @@ function handleChange(event){
   handleStyle[name](value)
   showCss();
 }
-function checkExpanded(parent){
-  if(!parent.classList.contains('expanded')){
-    const p1 = parent.nextElementSibling.nextElementSibling;
-    const p2 = p1.nextElementSibling
-    p1.style.display = 'none'
-    p2.style.display = 'none'
 
-  }
-}
 function toggleExpanded(event){
   event.stopPropagation();
-  const parentElement = event.target.parentNode
-  parentElement.classList.toggle('expanded');
-  checkExpanded(parentElement);
+  const nextElement = event.target.nextElementSibling;
+
+  event.target.classList.toggle('active');
+  nextElement.classList.toggle('active');
 }
 function showCss(){
   cssText.innerHTML = '<span>' + btn.style.cssText.split('; ').join(';</span><span>');

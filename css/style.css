@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Rubik&family=Poppins&display=swap');
+@import url(modules/settings-grid.css);
+@import url(modules/options.css);
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #eee;
+}
+
+.btn{
+  cursor: pointer;
+}
+.none{
+  display: none;
+}
+.active{
+  display: block;
+}
+.button-creator{
+  display: grid;
+  gap: 50px;
+  grid-template-columns: auto 1fr ;
+}
+
+.css{
+  font-family: 'IBM Plex Mono', monospace;
+  color: #333;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.css span{
+  display: block;
+  margin-bottom: .5rem;
+  position: relative;
+  top: 0;
+  left: 0;
+}
