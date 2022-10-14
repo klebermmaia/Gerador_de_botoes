@@ -8,57 +8,42 @@ const handleStyle = {
   texto(value){
     this.element.innerText = value;
   },
-  // tipoPaletaText(value){
-  //   const hexadecimal = document.getElementById('hexadecimalText');
-  //   const paleta = document.getElementById('paletaText');
-  //   if(value == hexadecimal.id){
-  //     if(hexadecimal.style.display = 'none'){
-  //       hexadecimal.style.display = 'block';
-  //       paleta.style.display = 'none';
-  //     } else{
-  //       hexadecimal.style.display = 'none';
-  //     }
-  //   } else{
-  //     if(paleta.style.display = 'none'){
-  //       paleta.style.display = 'block';
-  //       hexadecimal.style.display = 'none';
-  //     } else{
-  //       paleta.style.display = 'none';
-  //     }
-  //   }
-  // },
   color(value){
     this.element.style.color = value;
   },
-  // tipoPaletaBG(value){
-  //   const hexadecimal = document.getElementById('hexadecimalBG');
-  //   const paleta = document.getElementById('paletaBG');
-  //   if(value == hexadecimal.id){
-  //     if(hexadecimal.style.display = 'none'){
-  //       hexadecimal.style.display = 'block';
-  //       paleta.style.display = 'none';
-  //     } else{
-  //       hexadecimal.style.display = 'none';
-  //     }
-  //   } else{
-  //     if(paleta.style.display = 'none'){
-  //       paleta.style.display = 'block';
-  //       hexadecimal.style.display = 'none';
-  //     } else{
-  //       paleta.style.display = 'none';
-  //     }
-  //   }
-  // },
   backgroundColor(value){
     this.element.style.backgroundColor = value;
+  },
+  paddingCheckLadosIguais(){
+    const checkbox = document.getElementById('checkLadosIguais');
+    const groupPadding = document.querySelectorAll('[data-padding]');
+    if(checkbox.checked){
+      groupPadding[0].style.display = 'none'
+      groupPadding[1].style.display = 'block'
+    } else{
+      groupPadding[0].style.display = 'block'
+      groupPadding[1].style.display = 'none'
+    }
   },
   paddingY(value){
     this.element.style.paddingTop = value + 'px';
     this.element.style.paddingBottom = value + 'px';
   },
   paddingX(value){
-    this.element.style.paddingLeft = value + 'px';
     this.element.style.paddingRight = value + 'px';
+    this.element.style.paddingLeft = value + 'px';
+  },
+  paddingT(value){
+    this.element.style.paddingTop = value + 'px';
+  },
+  paddingB(value){
+    this.element.style.paddingBottom = value + 'px';
+  },
+  paddingD(value){
+    this.element.style.paddingRight = value + 'px';
+  },
+  paddingE(value){
+    this.element.style.paddingLeft = value + 'px';
   },
   width(value){
     this.element.style.width = value + 'px';
@@ -93,23 +78,41 @@ const handleStyle = {
   },
 }
 
-function handleChange(event){
-  const name = event.target.name;
-  const value = event.target.value;
-  handleStyle[name](value)
-  showCss();
-}
-
-function toggleExpanded(event){
-  event.stopPropagation();
-  const nextElement = event.target.nextElementSibling;
-
-  event.target.classList.toggle('active');
-  nextElement.classList.toggle('active');
-}
 function showCss(){
   cssText.innerHTML = '<span>' + btn.style.cssText.split('; ').join(';</span><span>');
 }
+function handleChange(event){
+  const name = event.target.name;
+  const value = event.target.value;
+  handleStyle[name](value);
+  showCss();
+}
+
+function checkHeight(event){
+  const settingsOptions = document.querySelectorAll('.settings-options');
+  const eventNextElement = event.target.nextElementSibling
+
+  settingsOptions.forEach(item=>{
+    if(eventNextElement === item){
+      const arr = [...item.children] 
+      let acc = 0;
+      arr.forEach(i=>{
+        acc += i.clientHeight
+        eventNextElement.clientHeight = acc + 10
+      })
+      console.log(eventNextElement.clientHeight)
+    }
+
+  })
+}
+function toggleExpanded(event){
+  event.stopPropagation();
+  const nextElement = event.target.nextElementSibling;
+  
+  event.target.classList.toggle('active');
+  nextElement.classList.toggle('active');
+  checkHeight(event);
+}
 
 controles.addEventListener('change', handleChange);
-expanded.forEach(element => element.addEventListener('click', toggleExpanded))
+expanded.forEach(element => element.addEventListener('click', toggleExpanded));

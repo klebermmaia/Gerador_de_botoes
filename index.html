@@ -17,15 +17,15 @@
           <h3>Configurações do texto</h3> 
           <span class="arrow-expanded" data-expanded="btn"></span>
           <div class="settings-options" data-expanded="options">
-            <div class="teste">
+            <div class="wrap-options">
               <label for="texto">Texto</label>
               <input id="texto" name="texto" type="text">
             </div>
-            <div class="teste">
+            <div class="wrap-options">
               <label for="fontSize">Tamanho da fonte</label>
               <input id="fontSize" name="fontSize" type="number" value="0">
             </div>
-            <div class="teste">
+            <div class="wrap-options">
               <label for="fontFamily">Fonte</label>
               <select name="fontFamily" id="fontFamily">
                 <option value="Arial">Arial</option>
@@ -33,13 +33,9 @@
                 <option value="monospace">monospace</option>
               </select>
             </div>
-            <div class="teste">
-              <label for="tipoPaletaText">Cor do texto</label>
-              <select name="tipoPaletaText" id="tipoPaletaText">
-                <option value="hexadecimalText">Hexadecimal</option>
-                <option value="paletaText">Paleta</option>
-              </select>
-              <div class="">
+            <div class="wrap-options">
+              <label>Cor do texto</label>
+              <div class="cores">
                 <input id="paletaText" name="color" type="color">
                 <input id="hexadecimalText" name="color" type="text" value="#">
               </div>
@@ -48,12 +44,47 @@
 
         </div>
 
-        <div class="setting-box" data-settings>
-          <label for="padding">padding - Y</label>
-          <input id="padding" name="paddingY" type="range" min="1" max="100" value="0">
+        <div class="setting-box" data-settings="box">
+          <h3>Configurações da caixa</h3> 
+          <span class="arrow-expanded" data-expanded="btn"></span>
+          <div class="settings-options" data-expanded="options">
 
-          <label for="padding">padding - X</label>
-          <input id="padding" name="paddingX" type="range" min="1" max="100" value="0">
+            <div class="wrap-options">
+              <label for="checkLadosIguais">Lados Personalizados</label>
+              <input id="checkLadosIguais" name="paddingCheckLadosIguais" type="checkbox">
+            </div>
+
+            <div data-padding="lados-iguais">
+              <div class="wrap-options">
+                <label for="paddingY">padding - Y</label>
+                <input id="paddingY" name="paddingY" type="range" min="1" max="100" value="0">
+              </div>
+              <div class="wrap-options">
+                <label for="paddingX">padding - X</label>
+                <input id="paddingX" name="paddingX" type="range" min="1" max="100" value="0">
+              </div>
+            </div>
+
+            <div data-padding="lados-personalizados">
+              <div class="wrap-options">
+                <label for="padding">padding - topo</label>
+                <input id="paddingRange" name="paddingT" type="range" min="1" max="100" value="0">
+              </div>
+              <div class="wrap-options">
+                <label for="padding">padding - baixo</label>
+                <input id="padding" name="paddingB" type="range" min="1" max="100" value="0">
+              </div>
+              <div class="wrap-options">
+                <label for="padding">padding - direita</label>
+                <input id="padding" name="paddingD" type="range" min="1" max="100" value="0">
+              </div>
+              <div class="wrap-options">
+                <label for="padding">padding - esquerda</label>
+                <input id="padding" name="paddingE" type="range" min="1" max="100" value="0">
+              </div>
+            </div>
+
+          </div>
         </div>
 
         <div class="setting-border" data-settings>

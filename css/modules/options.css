@@ -13,6 +13,7 @@
   font-weight: 400;
   border-bottom: 1px solid #c0c0c0;
   display: inline-block;
+  margin-bottom: 10px;
 }
 .settings-options{
   overflow: hidden;
@@ -59,11 +60,19 @@
 }
 label{
   color: #000;
-  display: inline-block;
+  display: block;
   position: relative;
 }
-.teste{
+.wrap-options{
   display: block;
+}
+.cores{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+#hexadecimalText{
+  width: 12ch;
 }
 /* label span::before,
 label span::after{
@@ -93,8 +102,7 @@ label.expanded span::after{
 } */
 input,
 select{
-  /* display: none; */
-  margin-top: 10px;
+  margin: 5px 0;
 }
 /* label.expanded + input,
 label.expanded + select{
@@ -102,4 +110,7 @@ label.expanded + select{
 } */
 input[type="range"]{
   max-width: 100%;
+}
+[data-padding="lados-personalizados"]{
+  display: none;
 }
