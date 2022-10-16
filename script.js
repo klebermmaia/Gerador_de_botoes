@@ -1,6 +1,7 @@
 const controles = document.querySelector('#controles');
-const cssText = document.querySelector('.css');
-const btn = document.querySelector('.btn');
+const checkLadosIguais = document.querySelector('#checkLadosIguais');
+const cssText = document.querySelector('[data-resultado="css"]');
+const btn = document.querySelector('[data-resultado="btn"]');
 const expanded = document.querySelectorAll('[data-expanded="btn"]');
 
 const handleStyle = {
@@ -89,26 +90,26 @@ function handleChange(event){
 }
 
 function checkHeight(event){
-  const settingsOptions = document.querySelectorAll('.settings-options');
-  const eventNextElement = event.target.nextElementSibling
-
-  settingsOptions.forEach(item=>{
-    if(eventNextElement === item){
-      const arr = [...item.children] 
-      let acc = 0;
-      arr.forEach(i=>{
-        acc += i.clientHeight
-        eventNextElement.clientHeight = acc + 10
-      })
-      console.log(eventNextElement.clientHeight)
-    }
-
+  console.log(event.target)
+  const nextElement = event.target.nextElementSibling;
+  const settingsOptionsChildrens = event.target.nextElementSibling.children;
+  const children = [...settingsOptionsChildrens];
+  let heightChildren = 0;
+  children.forEach(child=>{
+    heightChildren += child.clientHeight
   })
+  if(event.target.classList.contains('active')){
+    nextElement.style.height = heightChildren + 'px';
+  } else {
+    nextElement.style.height = 0;
+  }
+}
+function setHeight(){
+  
 }
 function toggleExpanded(event){
   event.stopPropagation();
   const nextElement = event.target.nextElementSibling;
-  
   event.target.classList.toggle('active');
   nextElement.classList.toggle('active');
   checkHeight(event);
@@ -116,3 +117,4 @@ function toggleExpanded(event){
 
 controles.addEventListener('change', handleChange);
 expanded.forEach(element => element.addEventListener('click', toggleExpanded));
+checkLadosIguais.addEventListener('click', checkHeight)
