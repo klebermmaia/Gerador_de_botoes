@@ -11,10 +11,13 @@
   <body>
     <section class="button-creator">
       <form id="controles">
-        <h2>Configurações</h2>
+        <div class="titulos-box">
+          <span>Botão</span>
+          <h2>Configurações</h2>
+        </div>
 
         <div class="setting-text" data-settings="text">
-          <h3>Configurações do texto</h3> 
+          <h3>Texto</h3> 
           <span class="arrow-expanded" data-expanded="btn"></span>
           <div class="settings-options" data-expanded="options">
             <div class="wrap-options">
@@ -45,7 +48,7 @@
         </div>
 
         <div class="setting-box" data-settings="box">
-          <h3>Configurações da caixa</h3> 
+          <h3>Caixa</h3> 
           <span class="arrow-expanded" data-expanded="btn"></span>
           <div class="settings-options" data-expanded="options">
 
@@ -88,33 +91,45 @@
         </div>
 
         <div class="setting-border" data-settings>
-          <label for="borderStyle">Borda - estilo</label>
-          <select name="borderStyle" id="borderStyle">
-            <option value="solid">solid</option>
-            <option value="dashed">dashed</option>
-            <option value="dotted">dotted</option>
-            <option value="double">double</option>
-            <option value="none">none</option>
-          </select>
-
-          <label for="borderWidth">Borda - tamanho</label>
-          <input id="borderWidth" name="borderWidth" type="number">
-
-          <label for="borderColor">Borda - cor</label>
-          <input id="borderColor" name="borderColor" type="color">
-          
-          <label for="borderRadius">Raio da borda</label>
-          <input id="borderRadius" name="borderRadius" type="range" min="0" max="100" value="0">
+          <h3>Borda</h3> 
+          <span class="arrow-expanded" data-expanded="btn"></span>
+          <div class="settings-options" data-expanded="options">
+            <div class="wrap-options">
+              <label for="borderStyle">Borda - estilo</label>
+              <select name="borderStyle" id="borderStyle">
+                <option value="solid">solid</option>
+                <option value="dashed">dashed</option>
+                <option value="dotted">dotted</option>
+                <option value="double">double</option>
+                <option value="none">none</option>
+              </select>
+            </div>
+            <div class="wrap-options">
+              <label for="borderWidth">Borda - tamanho</label>
+              <input id="borderWidth" name="borderWidth" type="number">
+            </div>
+            <div class="wrap-options">
+              <label for="borderColor">Borda - cor</label>
+              <input id="borderColor" name="borderColor" type="color">
+            </div>
+            
+            <div class="wrap-options">
+              <label for="borderRadius">Raio da borda</label>
+              <input id="borderRadius" name="borderRadius" type="range" min="0" max="100" value="0">
+            </div>
+          </div>
         </div>
 
         <div class="setting-background" data-settings>
-          <label for="tipoPaletaBG" >Cor de fundo</label>
-          <select name="tipoPaletaBG" id="tipoPaletaBG">
-            <option value="hexadecimalBG">Hexadecimal</option>
-            <option value="paletaBG">Paleta</option>
-          </select>
-          <input id="hexadecimalBG" class="none" name="backgroundColor" type="text" value="#">
-          <input id="paletaBG" class="none" name="backgroundColor" type="color">
+          <h3>Cor de fundo</h3> 
+          <span class="arrow-expanded" data-expanded="btn"></span>
+          <div class="settings-options" data-expanded="options">
+          <div class="wrap-options">
+            <label for="tipoPaletaBG" >Cor de fundo</label>
+            <input id="hexadecimalBG" name="backgroundColor" type="text" value="#">
+            <input id="paletaBG" name="backgroundColor" type="color">
+          </div>
+          </div>
         </div>
 
         <div class="setting-hover" data-settings></div>

@@ -12,7 +12,16 @@
   box-shadow: 3px 3px 2px 0 #0000002c;
   overflow-y: scroll;
 }
-#controles > h2{
+.titulos-box{
+  position: relative;
+}
+.titulos-box span{
+  position: absolute;
+  font-size: 1rem;
+  color: #c7c7c7;
+  top: -1rem;
+}
+.titulos-box > h2{
   font-size: 2rem;
   color: #fff;
   margin-bottom: 1.75rem;
