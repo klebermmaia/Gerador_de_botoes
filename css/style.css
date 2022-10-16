@@ -14,6 +14,9 @@ body{
 .btn{
   cursor: pointer;
 }
+.btn:hover{
+  background-color: aqua;
+}
 .none{
   display: none;
 }

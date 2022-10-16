@@ -1,5 +1,4 @@
-const controles = document.querySelector('#controles');
-const checkLadosIguais = document.querySelector('#checkLadosIguais');
+const controles = document.getElementById('controles');
 const cssText = document.querySelector('[data-resultado="css"]');
 const btn = document.querySelector('[data-resultado="btn"]');
 const expanded = document.querySelectorAll('[data-expanded="btn"]');
@@ -90,12 +89,13 @@ function handleChange(event){
 }
 
 function checkHeight(event){
-  console.log(event.target)
   const nextElement = event.target.nextElementSibling;
   const settingsOptionsChildrens = event.target.nextElementSibling.children;
   const children = [...settingsOptionsChildrens];
   let heightChildren = 0;
   children.forEach(child=>{
+    console.log(child, child.style.display)
+
     heightChildren += child.clientHeight
   })
   if(event.target.classList.contains('active')){
@@ -110,11 +110,17 @@ function setHeight(){
 function toggleExpanded(event){
   event.stopPropagation();
   const nextElement = event.target.nextElementSibling;
+  const checkLadosIguais = document.getElementById('checkLadosIguais');
   event.target.classList.toggle('active');
   nextElement.classList.toggle('active');
+  setInterval(()=>{
+    if(checkLadosIguais.checked){
+      checkHeight(event);
+    } else {
+    }
+  }, 100)
   checkHeight(event);
 }
 
 controles.addEventListener('change', handleChange);
 expanded.forEach(element => element.addEventListener('click', toggleExpanded));
-checkLadosIguais.addEventListener('click', checkHeight)
