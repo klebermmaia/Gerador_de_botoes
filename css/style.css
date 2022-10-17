@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Rubik&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Rubik&family=Poppins&family=Open+sans&family=Krub&family=Roboto&family=Lato&family=Ubuntu&family=Nunito&family=Poppins&display=swap');
 @import url(modules/settings-grid.css);
 @import url(modules/options.css);
 @import url(modules/resultado.css);
@@ -10,12 +10,13 @@
 body{
   background-color: #eee;
 }
-
+.box-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .btn{
   cursor: pointer;
-}
-.btn:hover{
-  background-color: aqua;
 }
 .none{
   display: none;
@@ -28,15 +29,16 @@ body{
   gap: 50px;
   grid-template-columns: auto 1fr ;
 }
-
-.css{
+pre{
+  align-self: flex-start;
+}
+.codigo-css{
   font-family: 'IBM Plex Mono', monospace;
   color: #333;
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
 }
-.css span{
+.codigo-css span{
   display: block;
   margin-bottom: .5rem;
   position: relative;

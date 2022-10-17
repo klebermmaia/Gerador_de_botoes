@@ -1,3 +1,4 @@
+/* Geral */
 [data-settings]{
   width: 100%;
   min-height: 50px;
@@ -12,7 +13,8 @@
   font-family: 'Poppins';
   font-weight: 400;
   border-bottom: 1px solid #c0c0c0;
-  display: block;
+  display: 
+  block;
   margin-bottom: 10px;
 }
 .settings-options{
@@ -62,55 +64,54 @@ label{
   color: #000;
   display: block;
   position: relative;
+  margin-bottom: 5px;
 }
 .wrap-options{
   display: block;
 }
-.cores{
+input,
+select{
+  margin: 0;
+}
+/* Inputs */
+.flexCenter{
   display: flex;
   align-items: center;
   gap: 5px;
+  padding-bottom: .5rem;
 }
-#hexadecimalText{
+.hexadecimal{
   width: 12ch;
 }
-/* label span::before,
-label span::after{
-  content: '';
-  display: block;
-  width: 8px;
-  height: 1px;
-  background-color: #353535;
-  position: absolute;
-  transition: all .3s;
-}
-label span::before{
-  top: 5px;
-  right: 4px;
-  transform: rotate(45deg);
-}
-label span::after{
-  top: 5px;
-  right: -2px;
-  transform: rotate(-45deg);
-}
-label.expanded span::before{
-  transform: rotate(-45deg);
-}
-label.expanded span::after{
-  transform: rotate(45deg);
-} */
-input,
-select{
-  margin: 5px 0;
-}
-/* label.expanded + input,
-label.expanded + select{
-  display: block;
-} */
 input[type="range"]{
   max-width: 100%;
 }
-[data-padding="lados-personalizados"]{
+
+/* Labels */
+.input-ch{
+  max-width: 6ch;
+}
+[for="fontSize"],
+[for="fontFamily"]{
+  display: inline-block;
+  margin-bottom: .7rem;
+}
+/*  */
+
+.none{
   display: none;
+}
+.estilos{
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: .3rem;
+}
+.estilos label{
+  margin: 0;
+}
+.personalizados h4{
+  font-size: .9rem;
+  font-weight: normal;
+  margin-bottom: 5px;
 }

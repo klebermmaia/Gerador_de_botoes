@@ -1,4 +1,5 @@
 const controles = document.getElementById('controles');
+const checkLadosIguais = document.getElementById('checkLadosIguais');
 const cssText = document.querySelector('[data-resultado="css"]');
 const btn = document.querySelector('[data-resultado="btn"]');
 const expanded = document.querySelectorAll('[data-expanded="btn"]');
@@ -23,6 +24,26 @@ const handleStyle = {
     } else{
       groupPadding[0].style.display = 'block'
       groupPadding[1].style.display = 'none'
+    }
+  },
+  paddingCheckValoresP(){
+    const checkbox = document.getElementById('checkValoresP');
+    const inputsRange = document.querySelectorAll('[data-padding] input[type="range"]');
+    const inputsNumber = document.querySelectorAll('[data-padding] input[type="number"]');
+    if(checkbox.checked){
+      inputsNumber.forEach(item=>{
+        item.classList.toggle('none');
+      })
+      inputsRange.forEach(item=>{
+        item.classList.toggle('none');
+      })
+    } else{
+      inputsNumber.forEach(item=>{
+        item.classList.add('none');
+      })
+      inputsRange.forEach(item=>{
+        item.classList.remove('none');
+      })
     }
   },
   paddingY(value){
@@ -74,7 +95,17 @@ const handleStyle = {
     this.element.style.fontFamily = value;
   },
   fontSize(value){
-    this.element.style.fontSize = value + 'rem';
+    const pxRem = document.getElementById('px-rem').value;
+    this.element.style.fontSize = value + pxRem;
+  },
+  styleText(value){
+    const italic = document.getElementById('textItalic');
+    this.element.style.textTransform = value;
+    if(italic.checked){
+      this.element.style.fontStyle = 'italic';
+    } else{
+      this.element.style.fontStyle = 'normal';
+    }
   },
 }
 
@@ -94,8 +125,7 @@ function checkHeight(event){
   const children = [...settingsOptionsChildrens];
   let heightChildren = 0;
   children.forEach(child=>{
-    console.log(child, child.style.display)
-
+    // console.log(child, child.style.display)
     heightChildren += child.clientHeight
   })
   if(event.target.classList.contains('active')){
@@ -104,22 +134,18 @@ function checkHeight(event){
     nextElement.style.height = 0;
   }
 }
-function setHeight(){
-  
-}
 function toggleExpanded(event){
   event.stopPropagation();
   const nextElement = event.target.nextElementSibling;
-  const checkLadosIguais = document.getElementById('checkLadosIguais');
   event.target.classList.toggle('active');
   nextElement.classList.toggle('active');
   setInterval(()=>{
     if(checkLadosIguais.checked){
       checkHeight(event);
-    } else {
+    } else{
+      checkHeight(event);
     }
-  }, 100)
-  checkHeight(event);
+  }, 0);
 }
 
 controles.addEventListener('change', handleChange);
