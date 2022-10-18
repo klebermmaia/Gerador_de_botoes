@@ -116,6 +116,7 @@ function handleChange(event){
   const name = event.target.name;
   const value = event.target.value;
   handleStyle[name](value);
+  saveValues(name, value);
   showCss();
 }
 
@@ -125,7 +126,6 @@ function checkHeight(event){
   const children = [...settingsOptionsChildrens];
   let heightChildren = 0;
   children.forEach(child=>{
-    // console.log(child, child.style.display)
     heightChildren += child.clientHeight
   })
   if(event.target.classList.contains('active')){
@@ -147,6 +147,17 @@ function toggleExpanded(event){
     }
   }, 0);
 }
-
+function saveValues(name, value){
+  localStorage[name] = value
+}
+function loadValues(){
+  const properties = Object.keys(localStorage);
+  properties.forEach(propertie=>{
+    handleStyle[propertie](localStorage[propertie]);
+    controles.elements[propertie].value = localStorage[propertie];
+  });
+  showCss();
+}
+loadValues();
 controles.addEventListener('change', handleChange);
 expanded.forEach(element => element.addEventListener('click', toggleExpanded));
