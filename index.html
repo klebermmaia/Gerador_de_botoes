@@ -168,36 +168,49 @@
           </div>
         </div>
 
-        <div class="setting-background" data-settings>
+        <div class="setting-border" data-settings>
           <h3>Sombra</h3> 
           <span class="arrow-expanded" data-expanded="btn"></span>
-          <div class="settings-options" data-expanded="options">
-            <div class="wrap-options">
-              <label for="tipoPaletaBG" >Cor</label>
-              <div class="flexCenter">
-                <input id="paletaBG" name="backgroundColor" type="color">
-                <input class="hexadecimal" name="backgroundColor" type="text" value="#">
-              </div>
-            </div>
-          </div>
 
           <div class="settings-options" data-expanded="options">
+
             <div class="wrap-options">
-              <label for="tipoPaletaBG" >Deslocamento:</label>
+              <label for="">Deslocamento:</label>
               <div class="flexCenter">
-                <label for="">X</label>
-                <input id="paletaBG" name="backgroundColor" type="number">
-                <label for="">Y</label>
-                <input class="hexadecimal" name="backgroundColor" type="number">
+                <span>X</span><input id="deslocamentoX" class="input-ch" name="shadowDeslocamento" type="number">
+                <span>Y</span><input id="deslocamentoY" class="input-ch" name="shadowDeslocamento" type="number">
               </div>
             </div>
-          </div>
 
+            <div class="wrap-options">
+              <div class="flexCenter">
+                <label for="">Dissipação:</label>
+                <input id="shadowdDissipar" class="input-ch" name="shadowDeslocamento" type="number">
+              </div>
+            </div>
+
+            <div class="wrap-options">
+              <div class="flexCenter">
+                <label for="">Espalhamento:</label>
+                <input id="shadowEspalhamento" class="input-ch" name="shadowDeslocamento" type="number">
+              </div>
+            </div>
+
+            <div class="wrap-options">
+              <label>Cor:</label>
+              <div class="flexCenter">
+                <input id="shadowPickColor" name="shadowDeslocamento" type="color">
+                <input id="shadowHexaColor" class="hexadecimal" name="shadowDeslocamento" type="text" value="#">
+              </div>
+            </div>
+
+          </div>
         </div>
 
         <div class="setting-background" data-settings>
           <h3>Cor de fundo</h3> 
           <span class="arrow-expanded" data-expanded="btn"></span>
+
           <div class="settings-options" data-expanded="options">
           <div class="wrap-options">
             <label for="tipoPaletaBG" >Cor de fundo</label>

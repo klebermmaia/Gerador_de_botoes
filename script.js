@@ -107,6 +107,19 @@ const handleStyle = {
       this.element.style.fontStyle = 'normal';
     }
   },
+  shadowDeslocamento(value){
+    const shadowX = document.querySelector('#deslocamentoX').value;
+    const shadowY = document.querySelector('#deslocamentoY').value;
+    const shadowdDissipar = document.querySelector('#shadowdDissipar').value;
+    const shadowEspalhamento = document.querySelector('#shadowEspalhamento').value;
+    const shadowPickColor = document.querySelector('#shadowPickColor').value;
+    const shadowHexaColor = document.querySelector('#shadowHexaColor').value;
+    const code = `${shadowX}px ${shadowY}px ${shadowdDissipar}px ${shadowEspalhamento}px ${shadowPickColor}`
+    console.log(shadowPickColor)
+    this.element.style.boxShadow = code;
+
+  },
+
 }
 
 function showCss(){
