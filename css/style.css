@@ -45,3 +45,6 @@ pre{
   top: 0;
   left: 0;
 }
+.menuHover{
+  display: none;
+}

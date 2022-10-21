@@ -100,14 +100,23 @@ const handleStyle = {
   },
   styleText(value){
     const italic = document.getElementById('textItalic');
+    const negrito = document.getElementById('textNegrito');
     this.element.style.textTransform = value;
     if(italic.checked){
       this.element.style.fontStyle = 'italic';
-    } else{
-      this.element.style.fontStyle = 'normal';
     }
+     else{
+      this.element.style.fontStyle = 'normal';
+     }
+
+     if(negrito.checked){
+      this.element.style.fontWeight = 'bold';
+    }
+     else{
+      this.element.style.fontWeight = 'normal';
+     }
   },
-  shadowDeslocamento(value){
+  shadowDeslocamento(){
     const shadowX = document.querySelector('#deslocamentoX').value;
     const shadowY = document.querySelector('#deslocamentoY').value;
     const shadowdDissipar = document.querySelector('#shadowdDissipar').value;
@@ -115,11 +124,26 @@ const handleStyle = {
     const shadowPickColor = document.querySelector('#shadowPickColor').value;
     const shadowHexaColor = document.querySelector('#shadowHexaColor').value;
     const code = `${shadowX}px ${shadowY}px ${shadowdDissipar}px ${shadowEspalhamento}px ${shadowPickColor}`
-    console.log(shadowPickColor)
     this.element.style.boxShadow = code;
-
   },
-
+  hover(value){
+    const checkHover = document.getElementById('hover');
+    const menuHover = document.querySelector('.menuHover');
+    if(checkHover.checked){
+      menuHover.style.display = 'block'
+      this.element.addEventListener('mouseover', (event)=>{
+        console.log(value)
+        this.element.style.color = value;
+      })
+      this.element.addEventListener('mouseout', (event)=>{
+        console.log(value)
+        this.element.style.color = value;
+      })
+    } else{
+      menuHover.style.display = 'none'; 
+      // Também vai resetar todos os valores de Hover.
+    }
+  },
 }
 
 function showCss(){

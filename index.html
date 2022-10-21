@@ -52,8 +52,13 @@
             <div class="wrap-options">
               <label for="styleText">Estilo:</label>
               <div class="estilos">
+
                 <label for="textItalic">Italico</label>
                 <input type="checkbox" name="styleText" id="textItalic">
+
+                <label for="textNegrito">Negrito</label>
+                <input type="checkbox" name="styleText" id="textNegrito">
+                
                 <select name="styleText" id="styleText">
                   <option value="normal">Normal</option>
                   <option value="capitalize">Capitalize</option>
@@ -221,6 +226,53 @@
           </div>
           </div>
         </div>
+
+        <div class="setting-background" data-settings>
+          <h3>Hover</h3> 
+          <span class="arrow-expanded" data-expanded="btn"></span>
+          
+          <div class="settings-options" data-expanded="options">
+            <div class="flexCenter">
+              <label for="hover">Ativar</label>
+              <input type="checkbox" name="hover" id="hover">
+            </div>
+
+            <div class="menuHover">
+              <div class="wrap-options">
+                <label for="tipoPaletaBG" >Cor do Texto</label>
+                <div class="flexCenter">
+                  <input name="hover" type="color">
+                  <input class="hexadecimal" name="hover" type="text" value="#">
+                </div>
+              </div>
+              <div class="wrap-options">
+                <label for="tipoPaletaBG" >Cor de Fundo</label>
+                <div class="flexCenter">
+                  <label for="gradienteHover">Gradiente</label>
+                  <input type="checkbox" name="hover" id="gradienteHover">
+                </div>
+                <div class="flexCenter" id="corFundo">
+                  <input name="hover" type="color">
+                  <input class="hexadecimal" name="hover" type="text" value="#">
+                </div>
+                <div class="flexCenter" id="corFundoGradiente">
+                  <input id="G-cor1" class="hexadecimal" name="hover" type="text" value="#">
+                  <input id="G-cor2" class="hexadecimal" name="hover" type="text" value="#">
+                </div>
+              </div>
+              <div class="wrap-options">
+                <label for="tipoPaletaBG" >Sombra - Deslocamento</label>
+                <div class="flexCenter">
+                  <span>X</span><input id="deslocamentoHoverX" class="input-ch" name="hoverm" type="number">
+                  <span>Y</span><input id="deslocamentoHoverY" class="input-ch" name="hover" type="number">
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
       </form>
 
       <div class="resultado">
@@ -230,6 +282,8 @@
         <pre>
           <h2>Codigo CSS:</h2>
           <code class="codigo-css" data-resultado="css">
+          </code>
+          <code class="codigo-css" data-resultado="hover">
           </code>
         </pre>
       </div>
